@@ -1,0 +1,167 @@
+@import url("https://fonts.googleapis.com/css?family=Lato");
+
+/* # variables */
+:root {
+  --page-max-width: 800px;
+
+  --header-letter-spacing: 0.1em;
+
+  --common-line-height: 1;
+
+  --portfolio-entry-hover-opacity: 0.25;
+
+  --background-color: hsl(240, 100%, 65%);
+  --text-color: white;
+  --naive-retirement-estimator-header-bg-color: hsl(215, 77%, 14%);
+  --attributes-background: hsla(0, 100%, 0%, 0.75);
+
+  --link-hover-gradient-direction: 45deg;
+  --link-hover-gradient-first-color: hsl(330, 100%, 65%);
+  --link-hover-gradient-second-color: hsl(30, 100%, 80%);
+
+  --primary-font-family: Lato, Calibri, Candara, Segoe, Segoe UI, Optima, Arial,
+    sans-serif;
+}
+
+/* # the whole page */
+body {
+  margin: 0 auto;
+  background: var(--background-color);
+  max-width: var(--page-max-width);
+}
+
+/* ## header */
+header {
+  color: var(--text-color);
+
+  --top-bottom-left-margin: 20px;
+  margin-top: var(--top-bottom-left-margin);
+  margin-right: var(--top-bottom-left-margin);
+  margin-left: var(--top-bottom-left-margin);
+}
+
+h1 {
+  --margin-top-right-bottom: 0;
+  margin-top: var(--margin-top-right-bottom);
+  margin-right: var(--margin-top-right-bottom);
+  margin-bottom: var(--margin-top-right-bottom);
+
+  text-align: center;
+
+  font-family: var(--primary-font-family);
+  letter-spacing: var(--header-letter-spacing);
+}
+
+h2 {
+  margin: 50px 0 0 0;
+  font-family: var(--primary-font-family);
+  text-align: center;
+  letter-spacing: var(--header-letter-spacing);
+}
+
+#portfolio-indicator {
+  margin: 40px 0 15px 0;
+  line-height: var(--common-line-height);
+}
+
+h3 {
+  margin: 0;
+  font-family: var(--primary-font-family);
+  font-weight: normal;
+  text-align: center;
+  letter-spacing: var(--header-letter-spacing);
+}
+
+#down-caret {
+  display: block;
+  margin-top: 5px;
+  margin-left: auto;
+  margin-right: auto;
+
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+}
+
+/* ## everything below header */
+main {
+  margin-top: 0;
+
+  --margin-right-bottom-left: 8px;
+  margin-right: var(--margin-right-bottom-left);
+  margin-bottom: var(--margin-right-bottom-left);
+  margin-left: var(--margin-right-bottom-left);
+}
+
+/* ### a specific portfolio entry */
+.portfolio-entry {
+  padding: 10px;
+
+  display: flex;
+  flex-direction: column;
+  max-height: 300px;
+
+  color: unset;
+  text-decoration: unset;
+  background: var(--naive-retirement-estimator-header-bg-color);
+  position: relative;
+}
+
+.portfolio-entry-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: var(--portfolio-entry-hover-opacity);
+}
+.portfolio-entry-hover:hover,
+.portfolio-entry-hover:active,
+.portfolio-entry-hover:focus {
+  /* fallback for old browsers */
+  background: var(--link-hover-gradient-second-color);
+
+  --link-hover-gradient-args: var(--link-hover-gradient-direction),
+    var(--link-hover-gradient-first-color),
+    var(--link-hover-gradient-second-color);
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(var(--link-hover-gradient-args));
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(var(--link-hover-gradient-args));
+}
+
+h4 {
+  font-family: var(--primary-font-family);
+  text-align: center;
+  color: var(--text-color);
+  letter-spacing: var(--header-letter-spacing);
+  margin: 0;
+  line-height: var(--common-line-height);
+  padding-bottom: 9px;
+}
+
+.portfolio-entry > img {
+  min-height: 0;
+}
+
+.list-of-attributes {
+  font-family: var(--primary-font-family);
+  color: var(--text-color);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: var(--attributes-background);
+  pointer-events: none;
+
+  --padding-left-right: 6px;
+  padding: 3px var(--padding-left-right);
+  width: calc(100% - 2 * var(--padding-left-right));
+}
+
+.list-of-attributes::first-line {
+  line-height: var(--common-line-height);
+}
